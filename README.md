@@ -1,7 +1,11 @@
 # Steam profile page
 A page where you can see all your profile steam info
 
-Build with Angular and C# .net
+
+## Technologies used
+* Angular
+* Angular material 13.3.9
+* Bootstrap
 
 ## Resources
 
