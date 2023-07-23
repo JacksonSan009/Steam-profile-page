@@ -2,15 +2,19 @@
 
 /* Provide sufficient contrast against white background */
 a {
-  color: #0366d6;
+  color: #204829;
 }
 
 code {
   color: #e01a76;
 }
 
-.btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+.btn {
+  color: #92e5a1;
+  background-color: #80ce87;
+  border-color: #92e5a1;
 }
+
+/* body {
+  background-color: #020204;
+} */
