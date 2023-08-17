@@ -9,14 +9,7 @@ import { Player } from './../models/player/player.module';
 export class HomeComponent {
   player: Player | undefined;
 
-  @ViewChild('searchBar') searchBar!: SearchBarComponent;
-
-  // onPlayerFound(eventData: { player: Player }) {
-  //   this.player = eventData.player;
-  // }
-
-  onPlayerFound() {
-    // this.player = this.searchBar.onEnter;
-    console.log(this.searchBar.player);
+  onPlayerFound($event: Player): void {
+    this.player = $event;
   }
 }

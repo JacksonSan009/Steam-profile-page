@@ -10,7 +10,7 @@ import { Player } from './../../models/player/player.module';
 })
 @Injectable()
 export class SearchBarComponent {
-  player: Player | undefined;
+  playersList: Player[] = [];
   playerId: string = '';
 
   @Output() onDataPlayerFilled = new EventEmitter<Player>();
@@ -18,15 +18,9 @@ export class SearchBarComponent {
   constructor(private PlayerService: PlayerService) {}
 
   onEnter(playerId: string) {
-    this.PlayerService.getPlayerData(playerId).subscribe({
-      next: (respond) => {
-        // console.log(respond);
-
-        this.player = Object.assign({}, respond);
-
-        this.onDataPlayerFilled.emit(this.player);
-      },
-      error: (e) => console.error(e),
+    this.PlayerService.getPlayerData(playerId).subscribe((response) => {
+      this.playersList = response.body!.response.players;
+      this.onDataPlayerFilled.emit(this.playersList[0]);
     });
   }
 }

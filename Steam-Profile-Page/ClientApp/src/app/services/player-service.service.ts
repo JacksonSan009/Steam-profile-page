@@ -1,5 +1,9 @@
-import { Player } from './../models/player/player.module';
-import { HttpClient } from '@angular/common/http';
+import {
+  Player,
+  PlayerModule,
+  PlayerResponse,
+} from './../models/player/player.module';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
@@ -15,7 +19,14 @@ export class PlayerService {
     this.baseUrl = baseUrl;
   }
 
-  public getPlayerData(playerId: string): Observable<Player> {
-    return this.http.get<Player>(this.baseUrl + this.url + '?id=' + playerId);
+  public getPlayerData(
+    playerId: string
+  ): Observable<HttpResponse<PlayerModule>> {
+    return this.http.get<PlayerModule>(
+      this.baseUrl + this.url + '?id=' + playerId,
+      {
+        observe: 'response',
+      }
+    );
   }
 }

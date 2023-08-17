@@ -1,5 +1,7 @@
-<app-search-bar></app-search-bar>
+<app-search-bar (onDataPlayerFilled)="onPlayerFound($event)"></app-search-bar>
 
-<div class="container-fluid" [(ngModel)]="player">
-	<!-- <h1>{{player.personaName | uppercase}}</h1> -->
+<div class="container-fluid" ngModel="this.player">
+  <h1>
+    {{this.player}}
+  </h1>
 </div>
