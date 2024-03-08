@@ -1,15 +1,15 @@
-<div class="container text-center">
-	<div class="row align-items-start">
-		<!-- Columna para centrar -->
-		<div class="col"></div>
+<div class="container text-center mb-2">
+  <div class="row align-items-start">
+    <!-- Columna para centrar -->
+    <div class="col"></div>
 
-		<div class="col">
-			<label for="player" class="text-black form-label">Enter Steam game ID:</label>
-			<input #gameInput (keyup.enter)="onEnter(gameInput.value)" name="player" id="player" type="text"
-				class="form-control" placeholder="Steam ID" />
-		</div>
+    <div class="col">
+      <label for="player" class="text-black form-label">Enter Steam game ID:</label>
+      <input #gameInput (keyup.enter)="onEnter(gameInput.value)" name="player" id="player" type="text"
+        class="form-control" placeholder="Steam ID" value="76561198072992164" />
+    </div>
 
-		<!-- Columna para centrar -->
-		<div class="col"></div>
-	</div>
+    <!-- Columna para centrar -->
+    <div class="col"></div>
+  </div>
 </div>

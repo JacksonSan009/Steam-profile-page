@@ -1,7 +1,17 @@
 <app-search-bar (onDataPlayerFilled)="onPlayerFound($event)"></app-search-bar>
 
-<div class="container-fluid" ngModel="this.player">
-  <h1>
-    {{this.player}}
-  </h1>
+<div class=" user-info d-flex justify-content-center border border-black py-2 mx-5" ngModel="this.player">
+
+  <img class="img-fluid d-inline rounded" src={{this.player?.avatarfull}} alt="...">
+
+  <div class="text-content">
+    <h1>{{this.player?.personaname}} </h1>
+    <h2>{{this.player?.realname}}</h2>
+  </div>
+
+  <a>
+    <span class="badge rounded-pillrounded-pill text-dark border border-black d-block">
+      {{this.player?.loccountrycode}}
+    </span>
+  </a>
 </div>
