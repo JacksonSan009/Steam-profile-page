@@ -1,17 +1,18 @@
 <app-search-bar (onDataPlayerFilled)="onPlayerFound($event)"></app-search-bar>
 
-<div class=" user-info d-flex justify-content-center border border-black py-2 mx-5" ngModel="this.player">
+<div class=" user-info d-inline-flex justify-content-center border rounded border-black py-2 mx-auto px-2"
+  ngModel="this.player">
 
-  <img class="img-fluid d-inline rounded" src={{this.player?.avatarfull}} alt="...">
+  <img class="img-fluid d-inline rounded " src={{this.player?.avatarfull}} alt="...">
 
-  <div class="text-content">
+  <div class="text-content mx-2">
     <h1>{{this.player?.personaname}} </h1>
-    <h2>{{this.player?.realname}}</h2>
+    <h2 class="fs-3 fw-light">{{this.player?.realname}}</h2>
+    <a>
+      <span class="badge rounded-pillrounded-pill text-dark border border-black ">
+        {{this.player?.loccountrycode}}
+      </span>
+    </a>
   </div>
 
-  <a>
-    <span class="badge rounded-pillrounded-pill text-dark border border-black d-block">
-      {{this.player?.loccountrycode}}
-    </span>
-  </a>
 </div>
