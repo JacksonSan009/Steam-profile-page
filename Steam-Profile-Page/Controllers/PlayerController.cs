@@ -7,9 +7,9 @@ namespace Steam_Profile_Page.Controllers;
 [Route("api/[controller]")]
 public class PlayerController : ControllerBase
 {
-	string STEAM_API_KEY = Environment.GetEnvironmentVariable("STEAM_API_KEY") ?? "";
+	private readonly string STEAM_API_KEY = Environment.GetEnvironmentVariable("STEAM_API_KEY") ?? "";
 
-	const string API_URI = "https://api.steampowered.com";
+	private readonly string API_URI = "https://api.steampowered.com";
 
 	[HttpGet]
 	[Route("getPlayerData")]

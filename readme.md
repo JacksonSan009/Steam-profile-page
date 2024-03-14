@@ -1,6 +1,9 @@
 # Steam profile page
 
-A page where you can see all your profile steam info
+This is a Single page web where you can see your Steam profile info as:
+
+* Profile Info
+* Game List
 
 ## Technologies used
 
