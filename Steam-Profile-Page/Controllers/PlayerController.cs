@@ -1,7 +1,4 @@
 using Microsoft.AspNetCore.Mvc;
-using System.Net.Mime;
-using System.Text.Json;
-using System.Text.Json.Serialization;
 
 namespace Steam_Profile_Page.Controllers;
 
@@ -10,7 +7,8 @@ namespace Steam_Profile_Page.Controllers;
 [Route("api/[controller]")]
 public class PlayerController : ControllerBase
 {
-	const string API_KEY = "27A869E3BD6354F0A9AB9AC8DD9C8C9C";
+	string STEAM_API_KEY = Environment.GetEnvironmentVariable("STEAM_API_KEY") ?? "";
+
 	const string API_URI = "https://api.steampowered.com";
 
 	[HttpGet]
@@ -27,11 +25,10 @@ public class PlayerController : ControllerBase
 			try
 			{
 				http.BaseAddress = new Uri(API_URI);
-				var response = await http.GetAsync($"/ISteamUser/GetPlayerSummaries/v0002/?key={API_KEY}&steamids={id}");
+				var response = await http.GetAsync($"/ISteamUser/GetPlayerSummaries/v0002/?key={STEAM_API_KEY}&steamids={id}");
 				response.EnsureSuccessStatusCode();
 
 				string result = await response.Content.ReadAsStringAsync();
-				// string json = JsonSerializer.Serialize(result);
 
 				return Ok(result);
 			}
