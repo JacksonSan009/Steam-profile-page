@@ -8,6 +8,7 @@ This is a Single page web where you can see your Steam profile info as:
 ## Technologies used
 
 * Dotnet 6.0.27
+* Xunit 2.4.2
 * Angular 13.3.0
 * Bootstrap
 

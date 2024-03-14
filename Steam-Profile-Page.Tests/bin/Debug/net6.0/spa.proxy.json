@@ -1,0 +1,8 @@
+{
+"SpaProxyServer": {
+"ServerUrl": "https://localhost:44474",
+"LaunchCommand": "npm start",
+"WorkingDirectory": "E:\\Code\\Steam-profile-page\\Steam-Profile-Page\\ClientApp\\",
+"MaxTimeoutInSeconds": "120"
+}
+}
