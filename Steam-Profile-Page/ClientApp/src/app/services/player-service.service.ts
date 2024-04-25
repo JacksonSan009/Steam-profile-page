@@ -1,31 +1,38 @@
-import {
-  Player,
-  PlayerModule,
-  PlayerResponse,
-} from './../models/player/player.module';
-import { HttpClient, HttpResponse } from '@angular/common/http';
-import { Inject, Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
+import { HttpClient, HttpResponse } from "@angular/common/http";
+import { Inject, Injectable } from "@angular/core";
+import { Observable } from "rxjs";
+import { PlayerModule } from "../models/player.module";
+import { RecentPlayedGames } from "../models/RecentPlayedGames.module";
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class PlayerService {
-  url: string = 'api/player/getPlayerData';
-  baseUrl: string = '';
+  private url: string = "api/player/";
+  private baseUrl: string = "";
 
-  constructor(private http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
+  constructor(private http: HttpClient, @Inject("BASE_URL") baseUrl: string) {
     this.baseUrl = baseUrl;
   }
 
-  public getPlayerData(
-    playerId: string
-  ): Observable<HttpResponse<PlayerModule>> {
+  public getPlayerData(playerId: string): Observable<HttpResponse<PlayerModule>> {
+    const path: string = "getPlayerData";
+
     return this.http.get<PlayerModule>(
-      this.baseUrl + this.url + '?id=' + playerId,
+      this.baseUrl + this.url + path + "?id=" + playerId,
       {
-        observe: 'response',
+        observe: "response",
+      }
+    );
+  }
+
+  public getRecentGamesPlayed(playerId: string): Observable<HttpResponse<RecentPlayedGames>> {
+    const path: string = "getRecentlyPlayedGames";
+
+    return this.http.get<RecentPlayedGames>(
+      this.baseUrl + this.url + path + "?id=" + playerId,
+      {
+        observe: "response",
       }
     );
   }

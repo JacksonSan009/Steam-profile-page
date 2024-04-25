@@ -38,4 +38,27 @@ public class PlayerController : ControllerBase
 			}
 		}
 	}
+
+	[HttpGet]
+	[Route("getRecentlyPlayedGames")]
+	public async Task<IActionResult> getRecentlyPlayedGames(string id)
+	{
+		using (HttpClient http = new HttpClient())
+		{
+			try
+			{
+				http.BaseAddress = new Uri(API_URI);
+				var response = await http.GetAsync($"IPlayerService/GetRecentlyPlayedGames/v0001/?key={STEAM_API_KEY}&steamid={id}");
+				response.EnsureSuccessStatusCode();
+
+				string result = await response.Content.ReadAsStringAsync();
+
+				return Ok(result);
+			}
+			catch (HttpRequestException ex)
+			{
+				return BadRequest($"Error getting user {id}: {ex.Message}");
+			}
+		}
+	}
 }
