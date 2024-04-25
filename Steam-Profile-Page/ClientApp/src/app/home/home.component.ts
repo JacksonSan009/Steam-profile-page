@@ -1,6 +1,6 @@
 import { SearchBarComponent } from './../components/search-bar/search-bar.component';
 import { Component, ViewChild } from '@angular/core';
-import { Player } from './../models/player/player.module';
+import { Player } from '../models/player.module';
 
 @Component({
   selector: 'app-home',
