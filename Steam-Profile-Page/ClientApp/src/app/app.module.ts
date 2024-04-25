@@ -23,7 +23,7 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
   providers: [{ provide: 'BASE_URL', useFactory: getBaseUrl }],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
 
 export function getBaseUrl() {
   return document.getElementsByTagName('base')[0].href;
