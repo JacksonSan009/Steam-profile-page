@@ -1,22 +1,22 @@
 <app-search-bar (onDataPlayerFilled)="onPlayerFound($event)"></app-search-bar>
 
-<div class=" user-info d-flex justify-content-center align-items-center" ngModel="this.player">
+<div class=" user-info d-flex justify-content-center align-items-center" *ngIf="this.Response.Player">
   <div class=" d-flex align-items-center border rounded border-black py-2 mx-auto px-2">
-    <img class="img-fluid d-inline rounded " src={{this.player?.avatarfull}} alt="user-image">
+    <img class="img-fluid d-inline rounded " src={{this.Response.Player.avatarfull}} alt="user-image">
 
     <div class="text-content mx-2">
-      <h1>{{this.player?.personaname}} </h1>
-      <h2 class="fs-3 fw-light">{{this.player?.realname}}</h2>
+
+      <h2 class="fs-3 fw-light">{{this.Response.Player.realname}}</h2>
       <a>
         <span class="badge rounded-pill text-dark border border-black ">
-          {{this.player?.loccountrycode}}
+          {{this.Response.Player.loccountrycode}}
         </span>
       </a>
     </div>
   </div>
 </div>
 
-<div class=" border rounded border-black p-2 mx-4">
+<div class=" border rounded border-black p-2 mx-4" *ngIf="this.Response.RecentGamesPlayed">
   <h2 class=" d-flex justify-content-center">Recent Played Games</h2>
 
   <div class="game-played d-inline-flex rounded border border-black p-2 mx-2">
@@ -24,7 +24,7 @@
       alt="lastgame-image">
 
     <div class="game-description ms-2">
-      <h4>NameGame</h4>
+      <h4>{{this.Response.RecentGamesPlayed[0].name}}</h4>
       <p>Playtime last 2 weeks: 2</p>
       <p>Playtime forever: 10</p>
       <p>How long to beat: 10</p>
