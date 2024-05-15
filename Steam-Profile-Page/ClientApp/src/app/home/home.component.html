@@ -1,34 +1,42 @@
 <app-search-bar (onDataPlayerFilled)="onPlayerFound($event)"></app-search-bar>
 
-<div class=" user-info d-flex justify-content-center align-items-center" *ngIf="this.Response.Player">
-  <div class=" d-flex align-items-center border rounded border-black py-2 mx-auto px-2">
-    <img class="img-fluid d-inline rounded " src={{this.Response.Player.avatarfull}} alt="user-image">
+<!-- Border of the page -->
+<div class="border-page shadow border rounded border-black  mx-5 mb-4 px-4 py-2 ">
+  <div *ngIf="this.Response.Player">
 
-    <div class="text-content mx-2">
+    <!-- User information -->
+    <div class=" user-info d-flex justify-content-center align-items-center my-3">
+      <div class=" d-flex align-items-center border rounded border-black p-1 ">
+        <img class="img-fluid d-inline rounded w-50" src={{this.Response.Player.avatarfull}} alt="user-image">
 
-      <h2 class="fs-3 fw-light">{{this.Response.Player.realname}}</h2>
-      <a>
-        <span class="badge rounded-pill text-dark border border-black ">
-          {{this.Response.Player.loccountrycode}}
-        </span>
-      </a>
+        <div class="text-content mx-2">
+          <h1 class="fs-3">{{this.Response.Player.personaname}} </h1>
+          <h2 class="fs-5 fw-light">{{this.Response.Player.realname}}</h2>
+          <a>
+            <span class="badge rounded-pill text-dark border border-black ">
+              {{this.Response.Player.loccountrycode}}
+            </span>
+          </a>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
-<div class=" border rounded border-black p-2 mx-4" *ngIf="this.Response.RecentGamesPlayed">
-  <h2 class=" d-flex justify-content-center">Recent Played Games</h2>
+    <div class=" p-2 mx-4">
+      <h2 class=" d-flex justify-content-center">Recent Played Games</h2>
 
-  <div class="game-played d-inline-flex rounded border border-black p-2 mx-2">
-    <img class=" d-inline rounded" src="https://howlongtobeat.com/games/68033_Baldurs_Gate_3.jpg?width=100"
-      alt="lastgame-image">
+      <div class="game-played d-inline-flex rounded border border-black p-2 mx-2"
+        *ngFor="let PlayedGame of this.Response.RecentGamesPlayed">
+        <img class=" d-inline rounded" src="" alt="lastgame-image">
 
-    <div class="game-description ms-2">
-      <h4>{{this.Response.RecentGamesPlayed[0].name}}</h4>
-      <p>Playtime last 2 weeks: 2</p>
-      <p>Playtime forever: 10</p>
-      <p>How long to beat: 10</p>
+        <div class="game-description ms-2">
+          <h4 class="text-wrap">{{PlayedGame.name}}</h4>
+          <p>Playtime last 2 weeks: {{getFormattedPlaytime(PlayedGame.playtime_2weeks)}}</p>
+          <p>Playtime forever: {{getFormattedPlaytime(PlayedGame.playtime_forever)}}</p>
+          <p>How long to beat: X</p>
+        </div>
+      </div>
+
     </div>
-  </div>
 
+  </div>
 </div>

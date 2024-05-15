@@ -1,6 +1,7 @@
 
 import { Component } from '@angular/core';
 import { HomeResponse } from '../models/HomeResponse.module';
+import { formatMinutesToHHMM } from '../utils/Converter';
 
 @Component({
   selector: 'app-home',
@@ -11,5 +12,9 @@ export class HomeComponent {
 
   onPlayerFound($event: HomeResponse): void {
     this.Response = $event;
+  }
+
+  getFormattedPlaytime(playtime: number): string {
+    return formatMinutesToHHMM(playtime);
   }
 }

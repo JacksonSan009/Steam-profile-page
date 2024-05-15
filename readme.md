@@ -15,6 +15,7 @@ This is a Single page web where you can see your Steam profile info as:
 ## Resources
 
 * [Steam Web API](https://developer.valvesoftware.com/wiki/Steam_Web_API)
+* [How long to beat API](https://github.com/ckatzorke/howlongtobeat)
 
 ## How to make it work
 

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Code\\Steam-profile-page\\Steam-Profile-Page.Tests\\Steam-Profile-Page.Tests.csproj": {}
+    "e:\\Code\\Steam-profile-page\\Steam-Profile-Page.Tests\\Steam-Profile-Page.Tests.csproj": {}
   },
   "projects": {
-    "E:\\Code\\Steam-profile-page\\Steam-Profile-Page.Tests\\Steam-Profile-Page.Tests.csproj": {
+    "e:\\Code\\Steam-profile-page\\Steam-Profile-Page.Tests\\Steam-Profile-Page.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Code\\Steam-profile-page\\Steam-Profile-Page.Tests\\Steam-Profile-Page.Tests.csproj",
+        "projectUniqueName": "e:\\Code\\Steam-profile-page\\Steam-Profile-Page.Tests\\Steam-Profile-Page.Tests.csproj",
         "projectName": "Steam-Profile-Page.Tests",
-        "projectPath": "E:\\Code\\Steam-profile-page\\Steam-Profile-Page.Tests\\Steam-Profile-Page.Tests.csproj",
+        "projectPath": "e:\\Code\\Steam-profile-page\\Steam-Profile-Page.Tests\\Steam-Profile-Page.Tests.csproj",
         "packagesPath": "C:\\Users\\jacks\\.nuget\\packages\\",
-        "outputPath": "E:\\Code\\Steam-profile-page\\Steam-Profile-Page.Tests\\obj\\",
+        "outputPath": "e:\\Code\\Steam-profile-page\\Steam-Profile-Page.Tests\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\jacks\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,8 +28,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "E:\\Code\\Steam-profile-page\\Steam-Profile-Page\\Steam-Profile-Page.csproj": {
-                "projectPath": "E:\\Code\\Steam-profile-page\\Steam-Profile-Page\\Steam-Profile-Page.csproj"
+              "e:\\Code\\Steam-profile-page\\Steam-Profile-Page\\Steam-Profile-Page.csproj": {
+                "projectPath": "e:\\Code\\Steam-profile-page\\Steam-Profile-Page\\Steam-Profile-Page.csproj"
               }
             }
           }
@@ -44,9 +44,17 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Mvc.Testing": {
+              "target": "Package",
+              "version": "[6.0.27, )"
+            },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
               "version": "[17.5.0, )"
+            },
+            "Moq": {
+              "target": "Package",
+              "version": "[4.20.70, )"
             },
             "coverlet.collector": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
@@ -85,14 +93,14 @@
         }
       }
     },
-    "E:\\Code\\Steam-profile-page\\Steam-Profile-Page\\Steam-Profile-Page.csproj": {
+    "e:\\Code\\Steam-profile-page\\Steam-Profile-Page\\Steam-Profile-Page.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Code\\Steam-profile-page\\Steam-Profile-Page\\Steam-Profile-Page.csproj",
+        "projectUniqueName": "e:\\Code\\Steam-profile-page\\Steam-Profile-Page\\Steam-Profile-Page.csproj",
         "projectName": "Steam-Profile-Page",
-        "projectPath": "E:\\Code\\Steam-profile-page\\Steam-Profile-Page\\Steam-Profile-Page.csproj",
+        "projectPath": "e:\\Code\\Steam-profile-page\\Steam-Profile-Page\\Steam-Profile-Page.csproj",
         "packagesPath": "C:\\Users\\jacks\\.nuget\\packages\\",
-        "outputPath": "E:\\Code\\Steam-profile-page\\Steam-Profile-Page\\obj\\",
+        "outputPath": "e:\\Code\\Steam-profile-page\\Steam-Profile-Page\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\jacks\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -8,4 +8,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Steam_Profile_Page.Tests
-build_property.ProjectDir = E:\Code\Steam-profile-page\Steam-Profile-Page.Tests\
+build_property.ProjectDir = e:\Code\Steam-profile-page\Steam-Profile-Page.Tests\

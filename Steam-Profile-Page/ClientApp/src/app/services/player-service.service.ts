@@ -1,8 +1,10 @@
 import { HttpClient, HttpResponse } from "@angular/common/http";
 import { Inject, Injectable } from "@angular/core";
 import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 import { PlayerModule } from "../models/player.module";
 import { RecentPlayedGames } from "../models/RecentPlayedGames.module";
+import { formatMinutesToHHMM } from "../utils/Converter";
 
 @Injectable({
   providedIn: "root",
@@ -16,10 +18,9 @@ export class PlayerService {
   }
 
   public getPlayerData(playerId: string): Observable<HttpResponse<PlayerModule>> {
-    const path: string = "getPlayerData";
+    const PATH: string = "getPlayerData";
 
-    return this.http.get<PlayerModule>(
-      this.baseUrl + this.url + path + "?id=" + playerId,
+    return this.http.get<PlayerModule>(`${this.baseUrl}${this.url}${PATH}?id=${playerId}`,
       {
         observe: "response",
       }
@@ -27,13 +28,10 @@ export class PlayerService {
   }
 
   public getRecentGamesPlayed(playerId: string): Observable<HttpResponse<RecentPlayedGames>> {
-    const path: string = "getRecentlyPlayedGames";
+    const PATH: string = "getRecentlyPlayedGames";
 
-    return this.http.get<RecentPlayedGames>(
-      this.baseUrl + this.url + path + "?id=" + playerId,
-      {
-        observe: "response",
-      }
-    );
+    return this.http.get<RecentPlayedGames>(`${this.baseUrl}${this.url}${PATH}?id=${playerId}`, {
+      observe: "response",
+    })
   }
 }
