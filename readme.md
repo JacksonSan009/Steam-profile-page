@@ -1,3 +1,5 @@
+![Last Commit (branch)](https://badgen.net/github/last-commit/JacksonSan009/Steam-profile-page/master)
+
 # Steam profile page
 
 This is a Single page web where you can see your Steam profile info as:
