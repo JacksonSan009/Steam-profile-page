@@ -10,7 +10,8 @@
     "build": "ng build",
     "build:ssr": "ng run Steam_Profile_Page:server:dev",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "start Project": "dotnet run --project Steam-profile-page"
   },
   "private": true,
   "dependencies": {
