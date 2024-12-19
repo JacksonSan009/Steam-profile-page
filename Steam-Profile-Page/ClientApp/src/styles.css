@@ -1,4 +1,11 @@
-.border-page{
+.border-page {
   min-height: 80vh;
 }
 
+.game-description h5 {
+  height: 40px;
+  /* Adjust the height as needed */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

@@ -1,15 +1,15 @@
 <app-search-bar (onDataPlayerFilled)="onPlayerFound($event)"></app-search-bar>
 
 <!-- Border of the page -->
-<div class="border-page shadow border rounded border-black  mx-5 mb-4 px-4 py-2 ">
+<div class="border-page shadow border rounded border-secondary  mx-5 mb-4 px-4 py-2 ">
   <div *ngIf="this.Response.Player">
 
     <!-- User information -->
     <div class=" user-info d-flex justify-content-center align-items-center my-3">
-      <div class=" d-flex align-items-center border rounded border-black p-1 ">
+      <div class=" d-flex align-items-center border rounded border-secondary p-1 ">
         <img class="img-fluid d-inline rounded w-50" src={{this.Response.Player.avatarfull}} alt="user-image">
 
-        <div class="text-content mx-2">
+        <div class="text-content mx-2 px-3">
           <h1 class="fs-3">{{this.Response.Player.personaname}} </h1>
           <h2 class="fs-5 fw-light">{{this.Response.Player.realname}}</h2>
           <a>
@@ -28,15 +28,21 @@
         <label class="text-secondary">The player has not played in the last 2 weeks.</label>
       </div>
 
-      <div class="game-played d-inline-flex rounded border border-black p-2 mx-2"
-        *ngFor="let PlayedGame of this.Response.RecentGamesPlayed">
-        <img class=" d-inline rounded" src="" alt="lastgame-image">
+      <div class="row">
+        <div class="col-md-4 clear" *ngFor="let PlayedGame of this.Response.RecentGamesPlayed">
+          <div class="game-played d-inline-flex rounded border border-black p-2 m-2">
+            <img class="img-fluid d-inline rounded  mx-2"
+              [src]="getFormattedImageUrl(PlayedGame.img_icon_url,PlayedGame.appid)" alt="Last game icon">
 
-        <div class="game-description ms-2">
-          <h4 class="text-wrap">{{PlayedGame.name}}</h4>
-          <p>Playtime last 2 weeks: {{getFormattedPlaytime(PlayedGame.playtime_2weeks)}}</p>
-          <p>Playtime forever: {{getFormattedPlaytime(PlayedGame.playtime_forever)}}</p>
-          <p>How long to beat: X</p>
+            <div class="game-description ">
+              <h6 class="text-wrap" [title]="PlayedGame.name">
+                {{ PlayedGame.name.length > 20 ? (PlayedGame.name | slice:0:20) + '...' : PlayedGame.name }}
+              </h6>
+              <p>Playtime last 2 weeks: <br>{{getFormattedPlaytime(PlayedGame.playtime_2weeks)}}</p>
+              <p>Playtime forever: <br>{{getFormattedPlaytime(PlayedGame.playtime_forever)}}</p>
+              <p>How long to beat: <br>X</p>
+            </div>
+          </div>
         </div>
       </div>
 
