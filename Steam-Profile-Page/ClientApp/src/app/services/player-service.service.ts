@@ -1,10 +1,8 @@
 import { HttpClient, HttpResponse } from "@angular/common/http";
 import { Inject, Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
 import { PlayerModule } from "../models/player.module";
 import { RecentPlayedGames } from "../models/RecentPlayedGames.module";
-import { formatMinutesToHHMM } from "../utils/Converter";
 
 @Injectable({
   providedIn: "root",

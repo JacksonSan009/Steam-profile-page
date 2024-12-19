@@ -1,6 +1,5 @@
 export interface HowLongToBeat {
-  userId: number
-  id: number
-  title: string
-  completed: boolean
+  id: string
+  name: string
+  imageUrl: string
 }

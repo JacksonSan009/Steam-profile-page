@@ -1,16 +1,28 @@
 import { TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
-import { PlayerServiceService } from './player-service.service';
+import { PlayerService } from './player-service.service';
 
-describe('PlayerServiceService', () => {
-  let service: PlayerServiceService;
+describe('PlayerService', () => {
+  let service: PlayerService;
+  let httpTestingController: HttpTestingController;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(PlayerServiceService);
+    TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
+      providers: [PlayerService]
+    });
+
+    service = TestBed.inject(PlayerService);
+    httpTestingController = TestBed.inject(HttpTestingController);
+  });
+
+  afterEach(() => {
+    httpTestingController.verify();
   });
 
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
 });
