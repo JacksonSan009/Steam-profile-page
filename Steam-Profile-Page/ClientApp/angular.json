@@ -71,11 +71,11 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "Steam_Profile_Page:build:production"
+              "buildTarget": "Steam_Profile_Page:build:production"
             },
             "development": {
-              "browserTarget": "Steam_Profile_Page:build:development",
-              "proxyConfig": "proxy.conf.js"
+              "proxyConfig": "proxy.conf.js",
+              "buildTarget": "Steam_Profile_Page:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +83,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Steam_Profile_Page:build"
+            "buildTarget": "Steam_Profile_Page:build"
           }
         },
         "test": {
