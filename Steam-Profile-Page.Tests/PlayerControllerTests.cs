@@ -9,38 +9,7 @@ public class PlayerControllerTests
 {
 
     const string mockSteamId = "76561198072992164";
-
-    [Fact]
-    public async Task GetPlayerData_ReturnsSuccess_WithValidPlayerId()
-    {
-        // Arrange
-        var mockLogger = new Mock<ILogger<PlayerController>>();
-        var mockHttpClient = new Mock<HttpClient>();
-
-        string expectedJson = "{\"success\": true, ...}"; // Example JSON response
-
-        mockHttpClient.Setup(client => client.GetAsync(It.IsAny<string>()))
-            .Returns(Task.FromResult(new HttpResponseMessage
-            {
-                StatusCode = HttpStatusCode.OK,
-                Content = new StringContent(expectedJson)
-            }));
-
-        var controller = new PlayerController(mockLogger.Object, mockHttpClient.Object);
-
-        // Act
-        var result = await controller.GetPlayerData(mockSteamId);
-
-        // Assert
-        var okObjectResult = Assert.IsType<OkObjectResult>(result);
-        Assert.Equal(expectedJson, okObjectResult.Value);
-    }
-
-    // [Fact]
-    public async Task GetPlayerData_ReturnsOk_ForValidSteamId()
-    {
-
-        const string expectedJson = @"{
+    const string expectedJson = @"{
     ""response"": {
             ""players"": [
                 {
@@ -66,8 +35,35 @@ public class PlayerControllerTests
                 }
         ]
     }
-}"; // Replace with sample JSON response
+}";
 
+    [Fact]
+    public async Task GetPlayerData_ReturnsSuccess_WithValidPlayerId()
+    {
+        // Arrange
+        var mockLogger = new Mock<ILogger<PlayerController>>();
+        var mockHttpClient = new Mock<HttpClient>();
+
+        mockHttpClient.Setup(client => client.GetAsync(It.IsAny<string>()))
+            .Returns(Task.FromResult(new HttpResponseMessage
+            {
+                StatusCode = HttpStatusCode.OK,
+                Content = new StringContent(expectedJson)
+            }));
+
+        var controller = new PlayerController(mockLogger.Object, mockHttpClient.Object);
+
+        // Act
+        var result = await controller.GetPlayerData(mockSteamId);
+
+        // Assert
+        var okObjectResult = Assert.IsType<OkObjectResult>(result);
+        Assert.Equal(expectedJson, okObjectResult.Value);
+    }
+
+    // [Fact]
+    public async Task GetPlayerData_ReturnsOk_ForValidSteamId()
+    {
         var mockHttpClient = new Mock<HttpClient>();
         // mockHttpClient.Setup(client => client.GetAsync(It.IsAny<string>()))
         //                      .Returns(Task.FromResult(new HttpResponseMessage
