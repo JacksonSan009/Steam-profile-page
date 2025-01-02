@@ -9,7 +9,9 @@ import { HomeResponse } from "src/app/models/HomeResponse.module";
   selector: "app-search-bar",
   templateUrl: "./search-bar.component.html",
   styleUrls: ["./search-bar.component.css"],
+  standalone: true,
 })
+
 @Injectable()
 export class SearchBarComponent {
   playerId: string = "";

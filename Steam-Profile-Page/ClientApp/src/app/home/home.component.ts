@@ -3,9 +3,13 @@ import { Component } from '@angular/core';
 import { HomeResponse } from '../models/HomeResponse.module';
 import { formatMinutesToHHMM } from '../utils/Converter';
 
+import { SearchBarComponent } from '../components/search-bar/search-bar.component';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
+  imports: [SearchBarComponent],
+  standalone: true
 })
 export class HomeComponent {
   Response: HomeResponse = <HomeResponse>{};;
