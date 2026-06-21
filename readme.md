@@ -19,7 +19,7 @@ This is a Single page web where you can see your Steam profile info as:
 - Dotnet 9.0.101
 - Xunit 2.4.2
 - Angular 19.0.6
-- Bootstrap
+- Bootstrap 5.3.8
 
 ## Resources
 
