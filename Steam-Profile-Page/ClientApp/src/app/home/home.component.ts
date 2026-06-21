@@ -1,6 +1,8 @@
 
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { HomeResponse } from '../models/HomeResponse.module';
+import { Game } from '../models/RecentPlayedGames.module';
 import { formatMinutesToHHMM } from '../utils/Converter';
 
 import { SearchBarComponent } from '../components/search-bar/search-bar.component';
@@ -8,14 +10,24 @@ import { SearchBarComponent } from '../components/search-bar/search-bar.componen
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  imports: [SearchBarComponent],
+  styleUrls: ['./home.component.css'],
+  imports: [CommonModule, SearchBarComponent],
   standalone: true
 })
 export class HomeComponent {
-  Response: HomeResponse = <HomeResponse>{};;
+  Response: HomeResponse = <HomeResponse>{};
+  viewMode: 'grid' | 'excel' = 'grid';
 
   onPlayerFound($event: HomeResponse): void {
     this.Response = $event;
+  }
+
+  setViewMode(mode: 'grid' | 'excel'): void {
+    this.viewMode = mode;
+  }
+
+  trackByAppId(index: number, game: Game): number {
+    return game.appid;
   }
 
   getFormattedPlaytime(playtime: number): string {
@@ -23,9 +35,7 @@ export class HomeComponent {
   }
 
   getFormattedImageUrl(fileName: string, appid: number): string {
-    const baseUrl = 'http://media.steampowered.com/steamcommunity/public/images/apps/';
-    const hash = fileName.split('.')[0]; // Assuming the filename format is "{hash}.jpg"
-
-    return `${baseUrl}${appid}/${hash}.jpg`;
+    // Use Steam's higher-resolution header image for the game if available.
+    return `https://cdn.cloudflare.steamstatic.com/steam/apps/${appid}/header.jpg`;
   }
 }

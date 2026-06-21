@@ -1,0 +1,28 @@
+.input-with-loader {
+  position: relative;
+}
+
+.loader {
+  position: absolute;
+  top: 50%;
+  right: 0.75rem;
+  width: 18px;
+  height: 18px;
+  margin-top: -9px;
+  border: 2px solid rgba(0, 0, 0, 0.15);
+  border-top-color: #0d6efd;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+input:disabled {
+  background-color: #f8f9fa;
+}
+
+input:disabled::placeholder {
+  color: rgba(33, 37, 41, 0.4);
+}
