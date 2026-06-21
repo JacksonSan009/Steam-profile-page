@@ -1,0 +1,53 @@
+{
+  "name": "steam_profile_page",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "prestart": "node aspnetcore-https",
+    "start": "run-script-os",
+    "start:windows": "ng serve --port 44474 --ssl --ssl-cert %APPDATA%\\ASP.NET\\https\\%npm_package_name%.pem --ssl-key %APPDATA%\\ASP.NET\\https\\%npm_package_name%.key",
+    "start:default": "ng serve --port 44474 --ssl --ssl-cert $HOME/.aspnet/https/${npm_package_name}.pem --ssl-key $HOME/.aspnet/https/${npm_package_name}.key",
+    "build": "ng build",
+    "build:ssr": "ng run Steam_Profile_Page:server:dev",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test",
+    "start:Project": "dotnet run --project Steam-profile-page --os linux --open"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^19.0.5",
+    "@angular/common": "^19.0.5",
+    "@angular/compiler": "^19.0.5",
+    "@angular/core": "^19.0.5",
+    "@angular/forms": "^19.0.5",
+    "@angular/platform-browser": "^19.0.5",
+    "@angular/platform-browser-dynamic": "^19.0.5",
+    "@angular/platform-server": "^19.0.5",
+    "@angular/router": "^19.0.5",
+    "bootstrap": "^5.3.8",
+    "global": "^4.4.0",
+    "jquery": "^3.5.1",
+    "oidc-client": "^1.11.5",
+    "popper.js": "^1.16.0",
+    "run-script-os": "^1.1.6",
+    "rxjs": "~6.6.0",
+    "zone.js": "^0.15.0"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^19.0.6",
+    "@angular/cli": "^19.0.6",
+    "@angular/compiler-cli": "^19.0.5",
+    "@schematics/angular": "^15.1.2",
+    "@types/jasmine": "~3.6.0",
+    "@types/jasminewd2": "~2.0.8",
+    "@types/node": "^12.11.1",
+    "jasmine-core": "~3.8.0",
+    "karma": "~6.3.0",
+    "karma-chrome-launcher": "~3.1.0",
+    "karma-coverage": "~2.0.3",
+    "karma-jasmine": "~4.0.0",
+    "karma-jasmine-html-reporter": "^1.5.0",
+    "tslib": "^2.4.1",
+    "typescript": "5.6.3"
+  }
+}
