@@ -26,8 +26,8 @@ This is a Single page web where you can see your Steam profile info as:
 - [Steam Web API](https://developer.valvesoftware.com/wiki/Steam_Web_API)
 
 ## Screenshot
-
-- ![image](./Assets/Screenshot_20-12-2024_74755_localhost.jpeg)
+- ![image1](./Assets/Screenshot_21-6-2026_11418_localhost.jpeg)
+- ![image2](./Assets/Screenshot_21-6-2026_114416_localhost.jpeg)
 
 ## How to make it work
 

@@ -1,0 +1,119 @@
+.view-mode-toolbar {
+  display: inline-flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.btn-view-mode {
+  min-width: 90px;
+  padding: 0.42rem 0.9rem;
+  border-radius: 999px;
+  font-weight: 500;
+  border-color: rgba(13, 110, 253, 0.25);
+}
+
+.btn-view-mode.active,
+.btn-view-mode:hover {
+  color: #fff;
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+}
+
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  align-items: stretch;
+  margin-top: 1rem;
+}
+
+.games-card-wrapper {
+  width: 100%;
+}
+
+.games-card {
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 16px 32px rgba(12, 61, 129, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease, filter 0.25s ease;
+  opacity: 0;
+  animation: cardFadeIn 0.45s ease forwards;
+}
+
+.games-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(12, 61, 129, 0.12);
+  filter: saturate(1.05);
+}
+
+@keyframes cardFadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.games-card .card-img-top {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 1rem 1rem 0.95rem;
+}
+
+.card-title {
+  font-size: 1rem;
+  margin-bottom: 0.35rem;
+}
+
+.card-text {
+  font-size: 0.9rem;
+  color: #5f6368;
+  margin-bottom: 0.35rem;
+  line-height: 1.45;
+}
+
+.games-grid-excel {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 18px;
+  overflow: hidden;
+  margin-top: 1rem;
+}
+
+.games-table-header,
+.games-table-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 0;
+  padding: 0.7rem 0.9rem;
+  align-items: center;
+}
+
+.games-table-header {
+  background-color: #f5f6fb;
+  font-weight: 700;
+}
+
+.games-table-row {
+  background-color: #fff;
+}
+
+.games-table-row:nth-child(odd) {
+  background-color: #fafbff;
+}
+
+.games-table-cell {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.92rem;
+  color: #4f5661;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

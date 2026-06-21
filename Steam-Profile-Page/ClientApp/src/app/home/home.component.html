@@ -1,51 +1,75 @@
 <app-search-bar (onDataPlayerFilled)="onPlayerFound($event)"></app-search-bar>
 
 <!-- Border of the page -->
-<div class="border-page shadow border rounded border-secondary  mx-5 mb-4 px-4 py-2 ">
-  @if (this.Response.Player){
+<div class="border-page shadow border rounded border-secondary mx-3 mb-4 px-3 py-2">
+  @if (this.Response.Player) {
 
+    <!-- User information -->
+    <div class="user-info d-flex justify-content-center align-items-center my-3">
+      <div class="d-flex align-items-center border rounded border-secondary p-1">
+        <img class="img-fluid d-inline rounded w-50" [src]="Response.Player.avatarfull" alt="user-image">
 
-  <!-- User information -->
-  <div class=" user-info d-flex justify-content-center align-items-center my-3">
-    <div class=" d-flex align-items-center border rounded border-secondary p-1 ">
-      <img class="img-fluid d-inline rounded w-50" src={{this.Response.Player.avatarfull}} alt="user-image">
-
-      <div class="text-content mx-2 px-3">
-        <h1 class="fs-3">{{this.Response.Player.personaname}} </h1>
-        <h2 class="fs-5 fw-light">{{this.Response.Player.realname}}</h2>
-        <a>
-          <span class="badge rounded-pill text-dark border border-black ">
-            {{this.Response.Player.loccountrycode}}
-          </span>
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <div class="p-2 mx-4">
-    <h2 class="d-flex justify-content-center">Recent Played Games</h2>
-
-    <div class="row justify-content-center">
-      @for(PlayedGame of this.Response.RecentGamesPlayed; track PlayedGame.appid){
-      <div class="col-md-4 col-lg-3 mb-4">
-        <div class="card h-100 mx-auto" style="max-width: 300px;">
-          <img class="card-img-top" [src]="getFormattedImageUrl(PlayedGame.img_icon_url, PlayedGame.appid)"
-            alt="Last game icon">
-          <div class="card-body">
-            <h5 class="card-title text-truncate" [title]="PlayedGame.name">{{ PlayedGame.name }}</h5>
-            <p class="card-text">Playtime last 2 weeks: <br>{{ getFormattedPlaytime(PlayedGame.playtime_2weeks) }}</p>
-            <p class="card-text">Playtime forever: <br>{{ getFormattedPlaytime(PlayedGame.playtime_forever) }}</p>
-          </div>
+        <div class="text-content mx-2 px-3">
+          <h1 class="fs-3">{{ this.Response.Player.personaname }}</h1>
+          <h2 class="fs-5 fw-light">{{ this.Response.Player.realname }}</h2>
+          <a>
+            <span class="badge rounded-pill text-dark border border-black">
+              {{ this.Response.Player.loccountrycode }}
+            </span>
+          </a>
         </div>
       </div>
-      }@empty {
-      <div class="d-flex justify-content-center">
-        <label class="text-secondary">The player has not played in the last 2 weeks.</label>
+    </div>
+
+    <div class="p-2 mx-4">
+      <h2 class="d-flex justify-content-center">Recent Played Games</h2>
+
+      <div class="view-mode-toolbar">
+        <button type="button" class="btn btn-outline-primary btn-sm btn-view-mode" [class.active]="viewMode === 'grid'" (click)="setViewMode('grid')">
+          Grid
+        </button>
+        <button type="button" class="btn btn-outline-primary btn-sm btn-view-mode" [class.active]="viewMode === 'excel'" (click)="setViewMode('excel')">
+          Text List
+        </button>
       </div>
+
+      @if (this.Response.RecentGamesPlayed && this.Response.RecentGamesPlayed.length) {
+        @if (this.viewMode === 'grid') {
+          <div class="games-grid">
+            @for (PlayedGame of this.Response.RecentGamesPlayed; track PlayedGame.appid) {
+              <div class="games-card-wrapper">
+                <div class="card h-100 games-card">
+                  <img class="card-img-top" [src]="getFormattedImageUrl(PlayedGame.img_icon_url, PlayedGame.appid)" alt="Last game icon">
+                  <div class="card-body">
+                    <h5 class="card-title text-truncate" [title]="PlayedGame.name">{{ PlayedGame.name }}</h5>
+                    <p class="card-text">Playtime last 2 weeks:<br>{{ getFormattedPlaytime(PlayedGame.playtime_2weeks) }}</p>
+                    <p class="card-text">Playtime forever:<br>{{ getFormattedPlaytime(PlayedGame.playtime_forever) }}</p>
+                  </div>
+                </div>
+              </div>
+            }
+          </div>
+        } @else {
+          <div class="games-grid-excel">
+            <div class="games-table-header">
+              <div>Name</div>
+              <div>Playtime 2w</div>
+              <div>Playtime forever</div>
+            </div>
+            @for (PlayedGame of this.Response.RecentGamesPlayed; track PlayedGame.appid) {
+              <div class="games-table-row">
+                <div class="games-table-cell" [title]="PlayedGame.name">{{ PlayedGame.name }}</div>
+                <div class="games-table-cell">{{ getFormattedPlaytime(PlayedGame.playtime_2weeks) }}</div>
+                <div class="games-table-cell">{{ getFormattedPlaytime(PlayedGame.playtime_forever) }}</div>
+              </div>
+            }
+          </div>
+        }
+      } @else {
+        <div class="d-flex justify-content-center">
+          <label class="text-secondary">The player has not played in the last 2 weeks.</label>
+        </div>
       }
     </div>
-  </div>
-
   }
-
 </div>
